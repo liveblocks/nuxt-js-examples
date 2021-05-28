@@ -28,38 +28,74 @@
       </div>
     </div>
     <div v-else>
-      <p class="mt-12 mb-6">
-        To run
-        <a href="https://liveblocks.io" target="_blank" rel="noreferrer">
-          Liveblocks
-        </a>
-        examples locally
-      </p>
-      <ul class="list-disc list-inside">
-        <li class="mb-2">
-          Install all dependencies with
-          <SingleLineCodeBlock code="npm install"></SingleLineCodeBlock>
-        </li>
-        <li class="mb-2">
-          Create an account on
+      <div v-if="isRunningOnCodeSandbox">
+        <p class="mt-12 mb-6">
+          To run
           <a href="https://liveblocks.io" target="_blank" rel="noreferrer">
-            liveblocks.io
+            Liveblocks
           </a>
-        </li>
-        <li class="mb-2">Copy your secret key from the administration</li>
-        <li class="mb-2">
-          Create a file named
-          <InlineCodeBlock code=".env.local"></InlineCodeBlock> and add your
-          Liveblocks secret as environment variable
-          <SingleLineCodeBlock
-            code="LIVEBLOCKS_SECRET_KEY=sk_test_yourkey"
-          ></SingleLineCodeBlock>
-        </li>
-        <li class="mb-2">
-          Run the following command and you should be good to go
-          <SingleLineCodeBlock code="npm run dev"></SingleLineCodeBlock>
-        </li>
-      </ul>
+          examples on CodeSandbox
+        </p>
+        <ul class="list-disc list-inside">
+          <li class="mb-2">
+            Create an account on
+            <a href="https://liveblocks.io" target="_blank" rel="noreferrer">
+              liveblocks.io
+            </a>
+          </li>
+          <li class="mb-2">Copy your secret key from the administration</li>
+          <li class="mb-2">
+            Add a
+            <a
+              href="https://codesandbox.io/docs/secrets"
+              target="_blank"
+              rel="noreferrer"
+            >
+              secret key
+            </a>
+            named
+            <InlineCodeBlock code="LIVEBLOCKS_SECRET_KEY"></InlineCodeBlock>
+            to your CodeSandbox sandbox.
+          </li>
+          <li class="mb-2">
+             Refresh your browser and you should be good to go!
+          </li>
+        </ul>
+      </div>
+      <div v-else>
+        <p class="mt-12 mb-6">
+          To run
+          <a href="https://liveblocks.io" target="_blank" rel="noreferrer">
+            Liveblocks
+          </a>
+          examples locally
+        </p>
+        <ul class="list-disc list-inside">
+          <li class="mb-2">
+            Install all dependencies with
+            <SingleLineCodeBlock code="npm install"></SingleLineCodeBlock>
+          </li>
+          <li class="mb-2">
+            Create an account on
+            <a href="https://liveblocks.io" target="_blank" rel="noreferrer">
+              liveblocks.io
+            </a>
+          </li>
+          <li class="mb-2">Copy your secret key from the administration</li>
+          <li class="mb-2">
+            Create a file named
+            <InlineCodeBlock code=".env.local"></InlineCodeBlock> and add your
+            Liveblocks secret as environment variable
+            <SingleLineCodeBlock
+              code="LIVEBLOCKS_SECRET_KEY=sk_test_yourkey"
+            ></SingleLineCodeBlock>
+          </li>
+          <li class="mb-2">
+            Run the following command and you should be good to go
+            <SingleLineCodeBlock code="npm run dev"></SingleLineCodeBlock>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -68,10 +104,20 @@
 import Vue from "vue";
 
 export default Vue.extend({
+  asyncData: function ({ req }) {
+    return {
+      host: process.server ? req.headers.host : window.location.host,
+    };
+  },
   data: function () {
     return {
       hasLiveblocksSecretKey: process.env.hasLiveblocksSecretKey,
     };
+  },
+  computed: {
+    isRunningOnCodeSandbox: function () {
+      return this.host.endsWith("codesandbox.io");
+    },
   },
 });
 </script>

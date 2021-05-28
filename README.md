@@ -2,7 +2,7 @@
 
 ## Getting started
 
-To run examples locally
+### Locally
 
 - Install all dependencies with `npm install`
 - Create an account on [liveblocks.io](https://liveblocks.io)

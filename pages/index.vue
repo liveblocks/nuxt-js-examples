@@ -104,20 +104,15 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  asyncData: function ({ req }) {
+  asyncData: function () {
     return {
-      host: process.server ? req.headers.host : window.location.host,
+      isRunningOnCodeSandbox: process.env.CODESANDBOX_SSE,
     };
   },
   data: function () {
     return {
       hasLiveblocksSecretKey: process.env.hasLiveblocksSecretKey,
     };
-  },
-  computed: {
-    isRunningOnCodeSandbox: function () {
-      return this.host.endsWith("codesandbox.io");
-    },
   },
 });
 </script>

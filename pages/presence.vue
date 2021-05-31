@@ -4,6 +4,9 @@
     v-on:pointermove="pointerMove"
     class="flex items-center justify-center h-screen w-screen"
   >
+    <GithubLink 
+      className="fixed top-8 right-8"
+      href="https://github.com/liveblocks/nuxt-js-examples/blob/main/pages/presence.vue"></GithubLink>
     <div class="max-w-sm text-center">
       Move your cursor to broadcast its position to other people in the room
     </div>

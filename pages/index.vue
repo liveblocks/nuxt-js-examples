@@ -3,6 +3,9 @@
     <h1 class="text-3xl font-semibold mt-24 mb-2">
       Welcome to Liveblocks × Nuxt.js examples
     </h1>
+    <GithubLink 
+      className="fixed top-8 right-8"
+      href="https://github.com/liveblocks/nuxt-js-examples/"></GithubLink>
     <div v-if="hasLiveblocksSecretKey">
       <p class="text-gray-400 mb-4 text-lg">
         Get started with the real-time examples below.
@@ -84,7 +87,7 @@
           <li class="mb-2">Copy your secret key from the administration</li>
           <li class="mb-2">
             Create a file named
-            <InlineCodeBlock code=".env.local"></InlineCodeBlock> and add your
+            <InlineCodeBlock code=".env"></InlineCodeBlock> and add your
             Liveblocks secret as environment variable
             <SingleLineCodeBlock
               code="LIVEBLOCKS_SECRET_KEY=sk_test_yourkey"

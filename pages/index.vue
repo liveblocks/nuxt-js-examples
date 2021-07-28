@@ -3,9 +3,10 @@
     <h1 class="text-3xl font-semibold mt-24 mb-2">
       Welcome to Liveblocks × Nuxt.js examples
     </h1>
-    <GithubLink 
+    <GithubLink
       className="fixed top-8 right-8"
-      href="https://github.com/liveblocks/nuxt-js-examples/"></GithubLink>
+      href="https://github.com/liveblocks/nuxt-js-examples/"
+    ></GithubLink>
     <div v-if="hasLiveblocksSecretKey">
       <p class="text-gray-400 mb-4 text-lg">
         Get started with the real-time examples below.
@@ -22,9 +23,14 @@
           </div>
           <ul class="grid grid-cols-1 gap-4">
             <ListItem
-              label="Presence demo"
-              href="/presence"
-              description="Presence"
+              label="Live Cursors Basic"
+              href="/live-cursors-basic"
+              description="Live Cursors Basic"
+            ></ListItem>
+            <ListItem
+              label="Live Avatars"
+              href="/live-avatars"
+              description="Live Avatars"
             ></ListItem>
           </ul>
         </div>
@@ -61,7 +67,7 @@
             to your CodeSandbox sandbox.
           </li>
           <li class="mb-2">
-             Refresh your browser and you should be good to go!
+            Refresh your browser and you should be good to go!
           </li>
         </ul>
       </div>
@@ -107,15 +113,15 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  asyncData: function () {
+  asyncData: function() {
     return {
-      isRunningOnCodeSandbox: process.env.CODESANDBOX_SSE,
+      isRunningOnCodeSandbox: process.env.CODESANDBOX_SSE
     };
   },
-  data: function () {
+  data: function() {
     return {
-      hasLiveblocksSecretKey: process.env.hasLiveblocksSecretKey,
+      hasLiveblocksSecretKey: process.env.hasLiveblocksSecretKey
     };
-  },
+  }
 });
 </script>

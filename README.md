@@ -4,7 +4,10 @@
   </a>
 </p>
 
-# [Liveblocks](https://liveblocks.io) × [Nuxt.js](https://nuxtjs.org/)
+# Deprecated
+This repository is deprecated, please use [https://github.com/liveblocks/liveblocks/tree/main/examples/nuxtjs-live-avatars](https://github.com/liveblocks/liveblocks/tree/main/examples/nuxtjs-live-avatars) for Nuxtjs example.
+
+## [Liveblocks](https://liveblocks.io) × [Nuxt.js](https://nuxtjs.org/)
 
 This repo shows how to use Liveblocks with [Nuxt.js](https://nuxtjs.org/).
 
